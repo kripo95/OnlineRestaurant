@@ -1,7 +1,11 @@
-import  React from 'react';
+import React, {Component} from 'react';
+import Restaurants from '../restaurants';
+export default class App extends Component {
 
-export default () => {
-    return (
-        <div>loh</div>
-    )
+  render() {
+
+      return(
+          <Restaurants restaurants={this.props.restaurants}/>
+      )
+  }
 }
