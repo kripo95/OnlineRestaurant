@@ -1,13 +1,13 @@
 import React, {useState, useMemo} from 'react';
-import Menu from '../menu';
 import Navigation from "../navigation";
-export default function Restaurants(props) {
-    const [activeId, setActiveId] = useState(props.restaurants[0].id);
-    const activeRestaurant = useMemo(()=> props.restaurants.find(restaurant => restaurant.id === activeId), [activeId, props.restaurants]);
+import Restaurant from "../restaurant";
+import style from './restaurants.module.css'
+export default function Restaurants({restaurants}) {
+    const [activeId, setActiveId] = useState(0);
+    const activeRestaurant = useMemo(()=> restaurants.find(restaurant => restaurant.id === activeId), [activeId, restaurants]);
     return (
-        <div>
-            <Navigation restaurants={props.restaurants} onRestaurantClick={setActiveId}/>
-            <Menu menu={activeRestaurant.menu}/>
+        <div className={style.restaurantWrapper}>
+            {activeId !== 0 ? <Restaurant restaurant={activeRestaurant} /> : <Navigation restaurants={restaurants} onRestaurantClick={setActiveId}/>}
         </div>
     )
 }

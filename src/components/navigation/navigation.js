@@ -1,10 +1,16 @@
 import React from 'react';
+import style from './navigation.module.css';
 
-export default function Navigation(props) {
+export default function Navigation({restaurants, onRestaurantClick}) {
     return (
-        <div>
-            {props.restaurants.map(restaurant => <button key={restaurant.id}
-                                                         onClick={() => props.onRestaurantClick(restaurant.id)}>{restaurant.name}</button>)}
+        <div className={style.navigationWrapper}>
+            {restaurants.map((restaurant) => {
+                return <div className={style.navigationItem} key={restaurant.id}
+                            onClick={() => onRestaurantClick(restaurant.id)}>
+                    <span>{restaurant.name} </span>
+                </div>;
+
+            })}
         </div>
     )
 }
