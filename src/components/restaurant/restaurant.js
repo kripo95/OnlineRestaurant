@@ -8,7 +8,7 @@ export default function Restaurant({restaurant}) {
     const [activePage, setActivePage] = useState('menu');
     const averageRating = useMemo(()=> {
         const total = reviews.reduce((sum, { rating }) => sum + rating, 0);
-        return (total / reviews.length).toFixed(1)
+        return Math.floor(total / reviews.length);
     })
     return (
         <div>

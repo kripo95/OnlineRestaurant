@@ -1,10 +1,10 @@
 import React from 'react';
 import Review from "./review";
 
-export default function Reviews(props){
+export default function Reviews({review}){
     return(
         <div>
-            {props.review.map(review => <Review key={review.id} review={review}/>)}
+            {review.map(review => <Review key={review.id} review={review}/>)}
         </div>
     )
 }
