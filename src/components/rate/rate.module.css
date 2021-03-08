@@ -1,0 +1,15 @@
+.rateWrapper{
+    display: flex;
+}
+svg {
+    cursor: pointer;
+}
+.starActive {
+    fill: #ffc107;
+}
+.starDisable {
+    fill: #e4e5e9;
+}
+input {
+    display: none;
+}
